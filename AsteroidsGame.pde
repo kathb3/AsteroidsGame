@@ -1,10 +1,16 @@
-//your variable declarations here
+Spaceship boop = new Spaceship();
+
 public void setup() 
 {
-  //your code here
+  size(700,700);
 }
 public void draw() 
 {
-  //your code here
+  boop.show();
 }
 
+public void keyPressed(){
+  if(key == 'r'){
+    boop.hyperspace();
+  }
+}
