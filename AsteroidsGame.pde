@@ -32,23 +32,23 @@ public void keyPressed(){
   }
   //move
   if(key == 'w' || keyCode == UP){
-    boop.accelerate(.5);
+    boop.accelerate(1);
   }
   if(key == 's' || keyCode == DOWN){
-    boop.accelerate(-.2);
+    boop.accelerate(-1);
   }
   //limit speed
-  if(boop.myXspeed > 10){
-    boop.myXspeed = 10;
+  if(boop.myXspeed > 15){
+    boop.myXspeed = 15;
   }
-  if(boop.myXspeed < -10){
-    boop.myXspeed = -10;
+  if(boop.myXspeed < -15){
+    boop.myXspeed = -15;
   }
-  if(boop.myYspeed > 10){
-    boop.myYspeed = 10;
+  if(boop.myYspeed > 15){
+    boop.myYspeed = 15;
   }
-  if(boop.myYspeed < -10){
-    boop.myYspeed = -10;
+  if(boop.myYspeed < -15){
+    boop.myYspeed = -15;
   }
   //random place
   if(key == 'r'){
