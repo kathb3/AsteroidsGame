@@ -1,7 +1,7 @@
 
 body {
-    background-color: rgb(0);
-    color: rgb(0);
+    background-color: black;
+    color: white;
     font-family: "Open Sans", sans-serif;
     text-align: center;
 }
@@ -13,8 +13,9 @@ body {
 }
 
 header {
-    text-size: 15px;
-    text-color: rgb(255);
+    background-color: black;
+    color: white;
+    text-size: 10px;
 }
 
 footer {
