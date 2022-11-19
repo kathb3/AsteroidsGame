@@ -1,17 +1,24 @@
 Spaceship boop = new Spaceship();
+Star[] twinkles = new Star[300];
 int x,y;
 public void setup() 
 {
   size(700,700);
+  for(int i = 0; i < twinkles.length; i++){
+    twinkles[i] = new Star();
+  }
   frameRate(120);
 }
 public void draw() 
 {
   background(0);
-  boop.move();
-  boop.show();
   noStroke();
   fill(255);
+  for(int i = 0; i < twinkles.length; i++){
+    twinkles[i].show();
+  }
+  boop.move();
+  boop.show();
 }
 public void mouseClicked()
 {
