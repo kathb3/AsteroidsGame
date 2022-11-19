@@ -15,7 +15,7 @@ public void mouseClicked()
 }
 public void setup() 
 {
-  size(700,700);
+  size(600,600);
   for(int i = 0; i < twinkles.length; i++){
     twinkles[i] = new Star();
   }
