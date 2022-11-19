@@ -1,26 +1,36 @@
 Spaceship boop = new Spaceship();
 Star[] twinkles = new Star[300];
 int x,y;
+public void mouseClicked()
+{
+  x = mouseX;
+  y = mouseY;
+  //small
+  if(key == 'm'){
+    ellipse(x,y,5,5);
+  }
+  if(key == 'n'){
+    ellipse(x,y,10,10);
+  }
+}
 public void setup() 
 {
   size(700,700);
   for(int i = 0; i < twinkles.length; i++){
     twinkles[i] = new Star();
   }
-  frameRate(120);
+  frameRate(100);
 }
 public void draw() 
 {
   background(0);
   noStroke();
   fill(255);
+  boop.move();
+  boop.show();
   for(int i = 0; i < twinkles.length; i++){
     twinkles[i].show();
   }
-  boop.myCenterX = 350;
-  boop.myCenterY = 350;
-  boop.move();
-  boop.show();
 }
 public void keyPressed(){
   //turn
@@ -38,17 +48,17 @@ public void keyPressed(){
     boop.accelerate(-1);
   }
   //limit speed
-  if(boop.myXspeed > 15){
-    boop.myXspeed = 15;
+  if(boop.myXspeed > 25){
+    boop.myXspeed = 25;
   }
-  if(boop.myXspeed < -15){
-    boop.myXspeed = -15;
+  if(boop.myXspeed < -25){
+    boop.myXspeed = -25;
   }
-  if(boop.myYspeed > 15){
-    boop.myYspeed = 15;
+  if(boop.myYspeed > 25){
+    boop.myYspeed = 25;
   }
-  if(boop.myYspeed < -15){
-    boop.myYspeed = -15;
+  if(boop.myYspeed < -25){
+    boop.myYspeed = -25;
   }
   //random place
   if(key == 'r'){
