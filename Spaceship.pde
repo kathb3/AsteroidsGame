@@ -8,8 +8,8 @@ class Spaceship extends Floater
     yCorners = new int[]{-8,0,8,0};
   }
   public void hyperspace(){
-    myCenterX = (int)(Math.random()*700);
-    myCenterY = (int)(Math.random()*700);
+    myCenterX = (int)(Math.random()*600);
+    myCenterY = (int)(Math.random()*600);
     myXspeed = 0;
     myYspeed = 0;
     myPointDirection = (int)(Math.random()*360);
