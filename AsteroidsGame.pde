@@ -40,8 +40,12 @@ public void draw()
   for(int i = 0; i < bonk.size(); i++){
     bonk.get(i).move();
     bonk.get(i).show();
-    if(dist(boop.getX(), boop.getY(), bonk.get(i).getX(), bonk.get(i).getY()) < 10){
+    if(dist((float)boop.getX(), (float)boop.getY(), bonk.get(i).getX(), bonk.get(i).getY()) < 10){
       bonk.remove(i);
+    }
+    else{
+      bonk.get(i).move();
+      bonk.get(i).show();
     }
   }
 }
