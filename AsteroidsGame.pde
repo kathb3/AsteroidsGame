@@ -1,5 +1,7 @@
 Spaceship boop = new Spaceship();
 Star[] twinkles = new Star[300];
+ArrayList <Asteroid> bonk = new ArrayList <Asteroid>();
+ArrayList <Bullet> pew = new ArrayList <Bullet>(); 
 int x,y;
 public void mouseClicked()
 {
@@ -16,11 +18,15 @@ public void mouseClicked()
 public void setup() 
 {
   size(600,600);
+  frameRate(100);
   for(int i = 0; i < twinkles.length; i++){
     twinkles[i] = new Star();
   }
-  frameRate(100);
+  for(int i = 0; i < 15; i++){
+    bonk.add(new Asteroid());
+  }
 }
+
 public void draw() 
 {
   background(0);
@@ -29,15 +35,23 @@ public void draw()
   boop.move();
   boop.show();
   for(int i = 0; i < twinkles.length; i++){
-    twinkles[i].show();
+    twinkles[i].draw();
+  }
+  for(int i = 0; i < bonk.size(); i++){
+    bonk.get(i).move();
+    bonk.get(i).show();
+    if(dist(boop.getX(), boop.getY(), bonk.get(i).getX(), bonk.get(i).getY()) < 10){
+      bonk.remove(i);
+    }
   }
 }
+
 public void keyPressed(){
   //turn
   if(key == 'a' || keyCode == LEFT){
     boop.turn(-15);
   }
-  if(key == 'd' || keyCode == RIGHT){
+  else if(key == 'd' || keyCode == RIGHT){
     boop.turn(15);
   }
   //move
@@ -68,5 +82,9 @@ public void keyPressed(){
   if(key == 'q'){
     boop.myXspeed = 0;
     boop.myYspeed = 0;
+  }
+  //pew pew
+  if(key == ' '){
+    pew.add(new Bullet(boop));
   }
 }
