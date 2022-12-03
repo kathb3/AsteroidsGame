@@ -2,13 +2,13 @@
 class Spaceship extends Floater  
 {   
   public Spaceship(){
-    myColor = color(255);
-    corners = 4;
-    xCorners = new int[]{-8,16,-8,-10};
-    yCorners = new int[]{-8,0,8,0};
+    myColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+    corners = 8;
+    xCorners = new int[]{16,16,8,8,-8,-8,8,8};
+    yCorners = new int[]{-10,10,10,16,16,-16,-16,-10};
     myCenterX = myCenterY = 300;
     myXspeed = myYspeed = 0;
-    myPointDirection = (int)(Math.random()*360);
+    myPointDirection = -90;
   }
   public double getX(){return myCenterX;}
   public double getY(){return myCenterY;}
