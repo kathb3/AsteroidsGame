@@ -1,6 +1,7 @@
 Spaceship boop = new Spaceship();
 Star[] twinkles = new Star[300];
 ArrayList <Asteroid> bonk = new ArrayList <Asteroid>();
+ArrayList <SmallAsteroid> tonk = new ArrayList <SmallAsteroid>();
 ArrayList <Bullet> pew = new ArrayList <Bullet>(); 
 int x,y;
 public void mouseClicked()
@@ -22,7 +23,7 @@ public void setup()
   for(int i = 0; i < twinkles.length; i++){
     twinkles[i] = new Star();
   }
-  for(int i = 0; i < 15; i++){
+  for(int i = 0; i < 50; i++){
     bonk.add(new Asteroid());
   }
 }
@@ -38,14 +39,28 @@ public void draw()
     twinkles[i].draw();
   }
   for(int i = 0; i < bonk.size(); i++){
-    bonk.get(i).move();
-    bonk.get(i).show();
-    if(dist((float)boop.getX(), (float)boop.getY(), bonk.get(i).getX(), bonk.get(i).getY()) < 10){
+    if(dist((float)boop.getX(), (float)boop.getY(), bonk.get(i).getX(), bonk.get(i).getY()) < 30){
+      tonk.get(i).move();
+      tonk.get(i).show();
       bonk.remove(i);
+      break;
     }
     else{
       bonk.get(i).move();
       bonk.get(i).show();
+    }
+  }
+  for(int i = 0; i < pew.size(); i++){
+    pew.get(i).move();
+    pew.get(i).show();
+  }
+  for(int i = 0; i < bonk.size(); i++){
+    for(int j = 0; j < pew.size(); j++){
+      if(dist((float)pew.get(j).getX(), (float)pew.get(j).getY(), (float)bonk.get(i).getX(), (float)bonk.get(i).getY()) < 15){
+        pew.remove(j);
+        bonk.remove(i);
+        break;
+      }
     }
   }
 }
