@@ -1,5 +1,6 @@
 class Asteroid extends Floater{
   private int rotSpeed;
+  public boolean split;
   public Asteroid(){
     rotSpeed = (int)(Math.random()*7)-3;
     corners = 6;
