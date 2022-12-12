@@ -4,6 +4,7 @@ ArrayList <Asteroid> bonk = new ArrayList <Asteroid>();
 ArrayList <SmallAsteroid> tonk = new ArrayList <SmallAsteroid>();
 ArrayList <Bullet> pew = new ArrayList <Bullet>(); 
 int x,y;
+boolean split;
 public void mouseClicked()
 {
   x = mouseX;
@@ -35,13 +36,12 @@ public void draw()
   fill(255);
   boop.move();
   boop.show();
+  split = false;
   for(int i = 0; i < twinkles.length; i++){
     twinkles[i].draw();
   }
   for(int i = 0; i < bonk.size(); i++){
     if(dist((float)boop.getX(), (float)boop.getY(), bonk.get(i).getX(), bonk.get(i).getY()) < 30){
-      tonk.get(i).move();
-      tonk.get(i).show();
       bonk.remove(i);
       break;
     }
@@ -59,6 +59,11 @@ public void draw()
       if(dist((float)pew.get(j).getX(), (float)pew.get(j).getY(), (float)bonk.get(i).getX(), (float)bonk.get(i).getY()) < 15){
         pew.remove(j);
         bonk.remove(i);
+        /*split = true;
+        if(split == true){
+          tonk.get(i).move();
+          tonk.get(i).show();
+        }*/
         break;
       }
     }
